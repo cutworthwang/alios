@@ -7,13 +7,13 @@
 #include "cutest/cut.h"
 
 #ifndef SYSINFO_ARCH
-#define SYSINFO_ARCH        ""
+#define SYSINFO_ARCH        "CORTEX-M0+ and CORTEX-M4"
 #endif
 #ifndef SYSINFO_MCU
-#define SYSINFO_MCU         ""
+#define SYSINFO_MCU         "PSOC6"
 #endif
 #ifndef SYSINFO_DEVICE_NAME
-#define SYSINFO_DEVICE_NAME ""
+#define SYSINFO_DEVICE_NAME "CY8C6347"
 #endif
 #define SYSINFO_KERNEL      "AOS"
 
