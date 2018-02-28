@@ -4,11 +4,11 @@
 
 *.uvopt
 
-*.uvoptx
+#*.uvoptx
 
 *.uvgui
 
-*.uvguix.*
+#*.uvguix.*
 
 # Listing files
 
