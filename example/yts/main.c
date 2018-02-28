@@ -12,6 +12,6 @@ int application_start(int argc, char **argv)
 {
     yts_run(argc, argv);
     aos_kv_deinit();
-    exit(0);
+    //exit(0);
 }
 
