@@ -791,7 +791,9 @@ int cli_putstr(char *msg)
 
 int cli_getchar(char *inbuf)
 {
-    if (aos_uart_recv(inbuf, 1, NULL, 0xFFFFFFFF) == 0) {
+	unsigned int size;
+	
+    if (aos_uart_recv(inbuf, 1, &size, 0xFFFFFFFF) == 0) {
         return 1;
     } else {
         return 0;
