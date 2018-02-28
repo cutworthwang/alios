@@ -428,7 +428,7 @@ static void ip4_sockaddr_to_ipstr_port(const struct sockaddr *name, char *ip)
     ip_u.ip_u32 = (uint32_t)(saddr->sin_addr.s_addr);
     snprintf(ip, SAL_SOCKET_IP4_ADDR_LEN, "%d.%d.%d.%d",
              ip_u.ip_u8[0], ip_u.ip_u8[1], ip_u.ip_u8[2], ip_u.ip_u8[3]);
-    ip[SAL_SOCKET_IP4_ADDR_LEN] = '\0';
+    ip[SAL_SOCKET_IP4_ADDR_LEN-1] = '\0'; //changed by cutworth
 
     SAL_DEBUG("Socket address coverted to %s\n", ip);
 }
