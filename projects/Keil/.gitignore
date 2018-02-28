@@ -8,7 +8,7 @@
 
 *.uvgui
 
-#*.uvguix.*
+*.uvguix.*
 
 # Listing files
 
