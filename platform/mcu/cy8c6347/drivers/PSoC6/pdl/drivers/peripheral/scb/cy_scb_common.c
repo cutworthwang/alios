@@ -64,8 +64,6 @@ void Cy_SCB_ReadArrayNoCheck(CySCB_Type const *base, void *buffer, uint32_t size
     }
 }
 
-uint8_t gbuf[100];
-
 /*******************************************************************************
 * Function Name: Cy_SCB_ReadArray
 ****************************************************************************//**
@@ -93,7 +91,6 @@ uint32_t Cy_SCB_ReadArray(CySCB_Type const *base, void *buffer, uint32_t size)
 {
     /* Get available items in RX FIFO */
     uint32_t numToCopy = Cy_SCB_GetNumInRxFifo(base);
-    uint8_t *buf = (uint8_t *)buffer;
 
     /* Adjust items that will be read */
     if (numToCopy > size)
@@ -103,11 +100,6 @@ uint32_t Cy_SCB_ReadArray(CySCB_Type const *base, void *buffer, uint32_t size)
 
     /* Get data available in RX FIFO */
     Cy_SCB_ReadArrayNoCheck(base, buffer, numToCopy);
-    
-    for(int i=0; i<numToCopy; i++)
-    {
-        gbuf[i] = buf[i];
-    }
 
     return (numToCopy);
 }

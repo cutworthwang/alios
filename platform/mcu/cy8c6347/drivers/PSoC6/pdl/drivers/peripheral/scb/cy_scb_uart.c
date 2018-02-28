@@ -1157,8 +1157,6 @@ void Cy_SCB_UART_Interrupt(CySCB_Type *base, cy_stc_scb_uart_context_t *context)
 }
 
 
-extern uint8_t gbuf[100];
-
 /*******************************************************************************
 * Function Name: HandleDataReceive
 ****************************************************************************//**
@@ -1190,16 +1188,11 @@ static void HandleDataReceive(CySCB_Type *base, cy_stc_scb_uart_context_t *conte
     
     /*
      * Added to workaround long time blocking when receiving big packets during SSL handshake
-     * RX interrupt need to be disabled when putting one byte into buffer queue
      */
-    Cy_SCB_SetRxInterruptMask(base, CY_SCB_CLEAR_ALL_INTR_SRC);
-
     if(context->buffer_queue != NULL)
     {   
-        krhino_buf_queue_send(context->buffer_queue,gbuf,numCopied);
+        krhino_buf_queue_send(context->buffer_queue,context->rxBuf,numCopied);
     }
-
-    Cy_SCB_SetRxInterruptMask(base, CY_SCB_RX_INTR_LEVEL);
 
     /******************************************************************************************/
 

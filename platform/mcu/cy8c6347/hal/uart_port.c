@@ -119,9 +119,7 @@ GETCHAR_PROTOTYPE
 }
 
 aos_sem_t scb1_tx_sema;
-aos_sem_t scb1_rx_sema;
 aos_sem_t scb5_tx_sema;
-aos_sem_t scb5_rx_sema;
 
 kbuf_queue_t g_buf_queue_uart[COMn];
 char g_buf_uart[COMn][MAX_BUF_UART_BYTES];
@@ -136,7 +134,6 @@ void scb1_callback(uint32_t event)
         break;
 				
         case CY_SCB_UART_RECEIVE_DONE_EVENT:
-        //aos_sem_signal(&scb1_rx_sema);
         break;
 				
         case CY_SCB_UART_TRANSMIT_IN_FIFO_EVENT:
@@ -163,11 +160,10 @@ void scb5_callback(uint32_t event)
     switch(event)
     {
         case CY_SCB_UART_TRANSMIT_DONE_EVENT:	
-        //aos_sem_signal(&scb5_tx_sema);
+        aos_sem_signal(&scb5_tx_sema);
         break;
 				
         case CY_SCB_UART_RECEIVE_DONE_EVENT:
-        //aos_sem_signal(&scb5_rx_sema);
         break;
 				
         case CY_SCB_UART_TRANSMIT_IN_FIFO_EVENT:
@@ -249,9 +245,7 @@ int32_t hal_uart_recv_buf_queue_1byte(uart_dev_t *uart, uint8_t *pdata, uint32_t
 int32_t hal_uart_init(uart_dev_t *uart)
 {
     aos_sem_new(&scb1_tx_sema,0);
-    aos_sem_new(&scb1_rx_sema,0);
     aos_sem_new(&scb5_tx_sema,0);
-    aos_sem_new(&scb5_rx_sema,0);
 
     switch(uart->port)
     {        
@@ -292,13 +286,7 @@ int32_t hal_uart_send(uart_dev_t *uart, const void *data, uint32_t size, uint32_
         
         case UART5:
         Cy_SCB_UART_Transmit(SCB5, (void *)data, size, &UART5_context);
-        //aos_sem_wait(&scb5_tx_sema, RHINO_WAIT_FOREVER);  
-#if 1				
-        while(0UL != (CY_SCB_UART_TRANSMIT_ACTIVE & Cy_SCB_UART_GetTransmitStatus(SCB5, &UART5_context)))
-        {
-            
-        } 
-#endif
+        aos_sem_wait(&scb5_tx_sema, RHINO_WAIT_FOREVER);  
         break;
         
         default:
