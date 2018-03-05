@@ -121,6 +121,12 @@ GETCHAR_PROTOTYPE
 aos_sem_t scb1_tx_sema;
 aos_sem_t scb5_tx_sema;
 
+//for UART driver lock, if not added, kernel test will fail
+aos_mutex_t scb1_tx_mutex;
+aos_mutex_t scb1_rx_mutex;
+aos_mutex_t scb5_tx_mutex;
+aos_mutex_t scb5_rx_mutex;
+
 kbuf_queue_t g_buf_queue_uart[COMn];
 char g_buf_uart[COMn][MAX_BUF_UART_BYTES];
 const char *g_pc_buf_queue_name[COMn] = {"buf_queue_uart1", "buf_queue_uart5"};
@@ -247,6 +253,11 @@ int32_t hal_uart_init(uart_dev_t *uart)
     aos_sem_new(&scb1_tx_sema,0);
     aos_sem_new(&scb5_tx_sema,0);
 
+    aos_mutex_new(&scb1_tx_mutex);
+    aos_mutex_new(&scb1_rx_mutex);
+    aos_mutex_new(&scb5_tx_mutex);
+    aos_mutex_new(&scb5_rx_mutex);
+
     switch(uart->port)
     {        
         case UART1:
@@ -277,16 +288,25 @@ int32_t hal_uart_init(uart_dev_t *uart)
 
 int32_t hal_uart_send(uart_dev_t *uart, const void *data, uint32_t size, uint32_t timeout)
 {
+    if(uart == NULL||data==NULL)
+    {
+        return -1;
+    }
+
     switch(uart->port)
     {
         case UART1:
+        aos_mutex_lock(&scb1_tx_mutex,RHINO_WAIT_FOREVER);
         Cy_SCB_UART_Transmit(SCB1, (void *)data, size, &UART1_context);
-        aos_sem_wait(&scb1_tx_sema, RHINO_WAIT_FOREVER);	
+        aos_sem_wait(&scb1_tx_sema, RHINO_WAIT_FOREVER);
+        aos_mutex_unlock(&scb1_tx_mutex);
         break;
         
         case UART5:
+        aos_mutex_lock(&scb5_tx_mutex, RHINO_WAIT_FOREVER);
         Cy_SCB_UART_Transmit(SCB5, (void *)data, size, &UART5_context);
         aos_sem_wait(&scb5_tx_sema, RHINO_WAIT_FOREVER);  
+        aos_mutex_unlock(&scb5_tx_mutex);
         break;
         
         default:
@@ -307,6 +327,11 @@ int32_t hal_uart_recv(uart_dev_t *uart, void *data, uint32_t expect_size,
     if ((uart == NULL) || (data == NULL)) {
         return -1;
     }
+    
+    if(uart->port == UART1)
+        aos_mutex_lock(&scb1_rx_mutex, RHINO_WAIT_FOREVER);
+    else if(uart->port == UART5)
+        aos_mutex_lock(&scb5_rx_mutex, RHINO_WAIT_FOREVER);
 
     for (i = 0; i < expect_size; i++)
     {
@@ -318,7 +343,10 @@ int32_t hal_uart_recv(uart_dev_t *uart, void *data, uint32_t expect_size,
         }
     }
 
-    *recv_size = rx_count;
+    if(recv_size != NULL)
+    {
+        *recv_size = rx_count;
+    }
 
     if(rx_count != 0)
     {
@@ -328,6 +356,11 @@ int32_t hal_uart_recv(uart_dev_t *uart, void *data, uint32_t expect_size,
     {
         ret = -1;
     }
+
+    if(uart->port == UART1)
+        aos_mutex_unlock(&scb1_rx_mutex);
+    else if(uart->port == UART5)
+        aos_mutex_unlock(&scb5_rx_mutex);
 
     return ret;
 }
