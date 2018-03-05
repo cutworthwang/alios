@@ -40,9 +40,9 @@
     #define DEVICE_NAME             "TestDeviceForDemo"
     #define DEVICE_SECRET           "fSCl9Ns5YPnYN8Ocg0VEel1kXFnRlV6c"
 */
-    #define PRODUCT_KEY             "BfKxBDSjWCH"
-    #define DEVICE_NAME             "aos_mqtt_test"
-    #define DEVICE_SECRET           "zcBZ5TB9cfAylUGo1flH0o47PxS8Mqu2"
+    #define PRODUCT_KEY             "dZ1yQSV4OZO"
+    #define DEVICE_NAME             "iot_mk3060"
+    #define DEVICE_SECRET           "M8RYpqEn7ixwG2BQUlKXlzmq3ILd1IX8"
 
 #endif
 
