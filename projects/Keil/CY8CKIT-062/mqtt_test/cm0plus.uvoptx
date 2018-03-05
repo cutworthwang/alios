@@ -22,7 +22,7 @@
   </DaveTm>
 
   <Target>
-    <TargetName>certification</TargetName>
+    <TargetName>mqtt_test</TargetName>
     <ToolsetNumber>0x4</ToolsetNumber>
     <ToolsetName>ARM-ADS</ToolsetName>
     <TargetOption>

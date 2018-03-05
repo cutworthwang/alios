@@ -150,9 +150,25 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>820</LineNumber>
+          <LineNumber>484</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>268523516</Address>
+          <Address>268488604</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\..\..\..\platform\mcu\cy8c6347\drivers\PSoC6\pdl\drivers\peripheral\syslib\cy_syslib.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\cm4\../../../../platform/mcu/cy8c6347/drivers/PSoC6/pdl/drivers/peripheral/syslib/cy_syslib.c\484</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>1051</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>268543592</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -161,7 +177,23 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>..\..\..\..\test\testcase\certificate_test\aos_test.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\cm4\../../../../test/testcase/certificate_test/aos_test.c\820</Expression>
+          <Expression>\\cm4\../../../../test/testcase/certificate_test/aos_test.c\1051</Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>1057</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>268543626</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\..\..\..\test\testcase\certificate_test\aos_test.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\cm4\../../../../test/testcase/certificate_test/aos_test.c\1057</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -205,12 +237,17 @@
           <WinNumber>1</WinNumber>
           <ItemText>page_cache</ItemText>
         </Ww>
+        <Ww>
+          <count>8</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>cy_faultFrame</ItemText>
+        </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>
           <WinNumber>1</WinNumber>
           <SubType>0</SubType>
-          <ItemText>0x10089000</ItemText>
+          <ItemText>0x080117d8</ItemText>
           <AccSizeX>0</AccSizeX>
         </Mm>
       </MemoryWindow1>
@@ -218,7 +255,7 @@
         <Mm>
           <WinNumber>2</WinNumber>
           <SubType>0</SubType>
-          <ItemText>0x0801838c</ItemText>
+          <ItemText>0x08022b48</ItemText>
           <AccSizeX>0</AccSizeX>
         </Mm>
       </MemoryWindow2>
@@ -2265,7 +2302,7 @@
 
   <Group>
     <GroupName>certification</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -2345,7 +2382,7 @@
 
   <Group>
     <GroupName>security/mbedtls</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -2370,6 +2407,18 @@
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\..\security\mbedtls\src\mbedtls_ssl.c</PathWithFileName>
       <FilenameWithoutPath>mbedtls_ssl.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>49</GroupNumber>
+      <FileNumber>144</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\..\..\security\mbedtls\src\mbedtls_alt.c</PathWithFileName>
+      <FilenameWithoutPath>mbedtls_alt.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

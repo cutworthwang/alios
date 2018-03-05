@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>certification</TargetName>
+      <TargetName>mqtt_test</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
@@ -1437,13 +1437,8 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>certification</GroupName>
+          <GroupName>mqtt_test</GroupName>
           <Files>
-            <File>
-              <FileName>aos_test.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\test\testcase\certificate_test\aos_test.c</FilePath>
-            </File>
             <File>
               <FileName>cut.c</FileName>
               <FileType>1</FileType>
@@ -1469,6 +1464,11 @@
               <FileType>1</FileType>
               <FilePath>.\auto\testcase_register.c</FilePath>
             </File>
+            <File>
+              <FileName>mqtt_test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\test\testcase\framework\mqtt_test\mqtt_test.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1483,11 +1483,6 @@
               <FileName>mbedtls_ssl.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\security\mbedtls\src\mbedtls_ssl.c</FilePath>
-            </File>
-            <File>
-              <FileName>mbedtls_alt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\security\mbedtls\src\mbedtls_alt.c</FilePath>
             </File>
           </Files>
         </Group>

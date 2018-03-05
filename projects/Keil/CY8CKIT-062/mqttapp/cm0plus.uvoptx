@@ -117,6 +117,11 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
+          <Key>cyuvdriver_arm</Key>
+          <Name>-o3840 -v0 -p1 -c1 -a0 -l8 -nKitProg2/0B08199701047400 -i0 -t0</Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
           <Key>ARMRTXEVENTFLAGS</Key>
           <Name>-L70 -Z18 -C0 -M0 -T1</Name>
         </SetRegEntry>
@@ -138,7 +143,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>ULP2CM3</Key>
-          <Name>-UAny -O966 -S4 -C0 -P01 -N00("ARM CoreSight SW-DP") -D00(6BA02477) -L00(0) -TO18 -TC10000000 -TP18 -TDX0 -TDD0 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO3 -FD8002400 -FC8000 -FN1 -FF0CY8C6xx7.FLM -FS010000000 -FL0100000 -FP0($$Device:CY8C6347BZI-BLD53_Pack$FLM\PSoC 63\CY8C6xx7.FLM)</Name>
+          <Name>-UAny -O966 -S4 -C0 -P01 -N00("ARM CoreSight SW-DP") -D00(6BA02477) -L00(0) -TO18 -TC10000000 -TP18 -TDX0 -TDD0 -TDS8000 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO3 -FD8002400 -FC8000 -FN1 -FF0CY8C6xx7.FLM -FS010000000 -FL0100000 -FP0($$Device:CY8C6347BZI-BLD53_Pack$FLM\PSoC 63\CY8C6xx7.FLM)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -282,7 +287,7 @@
 
   <Group>
     <GroupName>startup</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
