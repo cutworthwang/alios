@@ -30,7 +30,7 @@
 #ifndef TEST_CONFIG_STACK_SIZE
 #define TEST_CONFIG_STACK_SIZE                  (256)
 #endif
-#define TEST_CONFIG_MAX_TASK_COUNT              (10)
+#define TEST_CONFIG_MAX_TASK_COUNT              (5)
 #define TEST_CONFIG_CREATE_TASK_TIMES           (10000)
 #endif
 
@@ -923,6 +923,7 @@ static void delayed_action2(void *arg)
 static void delayed_action3(void *arg)
 {
     g_var++;
+    printf("g_var 0x%x\n", g_var);
 }
 
 static void task_loop1(void *arg)
