@@ -101,7 +101,7 @@
         <sRunDeb>0</sRunDeb>
         <sLrtime>0</sLrtime>
         <bEvRecOn>1</bEvRecOn>
-        <nTsel>1</nTsel>
+        <nTsel>2</nTsel>
         <sDll></sDll>
         <sDllPa></sDllPa>
         <sDlgDll></sDlgDll>
@@ -112,9 +112,14 @@
         <tDlgDll></tDlgDll>
         <tDlgPa></tDlgPa>
         <tIfile></tIfile>
-        <pMon>BIN\ULP2CM3.DLL</pMon>
+        <pMon>BIN\CMSIS_AGDI.dll</pMon>
       </DebugOpt>
       <TargetDriverDllRegistry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>CMSIS_AGDI</Key>
+          <Name>-X"Any" -UAny -O206 -S8 -C0 -P02 -N00("") -D00(00000000) -L00(0) -TO18 -TC10000000 -TP20 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO3 -FD8002400 -FC8000 -FN1 -FF0CY8C6xx7.FLM -FS010000000 -FL0100000 -FP0($$Device:CY8C6347BZI-BLD53_Pack$FLM\PSoC 63\CY8C6xx7.FLM)</Name>
+        </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
           <Key>ARMRTXEVENTFLAGS</Key>
@@ -138,7 +143,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>ULP2CM3</Key>
-          <Name>-UAny -O966 -S4 -C0 -P02 -N00("ARM CoreSight SW-DP") -D00(6BA02477) -L00(0) -TO18 -TC10000000 -TP18 -TDX0 -TDD0 -TDS8000 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO3 -FD8002400 -FC8000 -FN1 -FF0CY8C6xx7.FLM -FS010000000 -FL0100000 -FP0($$Device:CY8C6347BZI-BLD53_Pack$FLM\PSoC 63\CY8C6xx7.FLM)</Name>
+          <Name>-UAny -O974 -S8 -C0 -P02 -N00("ARM CoreSight SW-DP") -D00(6BA02477) -L00(0) -TO18 -TC10000000 -TP18 -TDX0 -TDD0 -TDS8000 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO3 -FD8002400 -FC8000 -FN1 -FF0CY8C6xx7.FLM -FS010000000 -FL0100000 -FP0($$Device:CY8C6347BZI-BLD53_Pack$FLM\PSoC 63\CY8C6xx7.FLM)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -150,81 +155,64 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>858</LineNumber>
+          <LineNumber>101</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>268571180</Address>
+          <Address>268538448</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\..\..\kernel\rhino\core\k_mm.c</Filename>
+          <Filename>..\..\..\..\platform\mcu\cy8c6347\hal\ota_port.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\cm4\../../../../kernel/rhino/core/k_mm.c\858</Expression>
+          <Expression>\\cm4\../../../../platform/mcu/cy8c6347/hal/ota_port.c\101</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>837</LineNumber>
+          <LineNumber>353</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>268571058</Address>
+          <Address>268477352</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\..\..\kernel\rhino\core\k_mm.c</Filename>
+          <Filename>..\..\..\..\platform\mcu\cy8c6347\drivers\startup\startup_psoc63_cm4.s</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\cm4\../../../../kernel/rhino/core/k_mm.c\837</Expression>
+          <Expression>\\cm4\../../../../platform/mcu/cy8c6347/drivers/startup/startup_psoc63_cm4.s\353</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>product_key</ItemText>
+          <ItemText>cy_faultFrame</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>device_name</ItemText>
-        </Ww>
-        <Ww>
-          <count>2</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>device_secret</ItemText>
-        </Ww>
-        <Ww>
-          <count>3</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>data</ItemText>
-        </Ww>
-        <Ww>
-          <count>4</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>recv_size</ItemText>
-        </Ww>
-        <Ww>
-          <count>5</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>buf</ItemText>
-        </Ww>
-        <Ww>
-          <count>6</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>timeout</ItemText>
+          <ItemText>task_stack</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>
           <WinNumber>1</WinNumber>
           <SubType>0</SubType>
-          <ItemText>0x08023644</ItemText>
+          <ItemText>0x1008a000</ItemText>
           <AccSizeX>0</AccSizeX>
         </Mm>
       </MemoryWindow1>
+      <MemoryWindow2>
+        <Mm>
+          <WinNumber>2</WinNumber>
+          <SubType>0</SubType>
+          <ItemText>0x0801c290</ItemText>
+          <AccSizeX>0</AccSizeX>
+        </Mm>
+      </MemoryWindow2>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
@@ -267,6 +255,12 @@
       <pszMrulep></pszMrulep>
       <pSingCmdsp></pSingCmdsp>
       <pMultCmdsp></pMultCmdsp>
+      <DebugDescription>
+        <Enable>1</Enable>
+        <EnableLog>0</EnableLog>
+        <Protocol>2</Protocol>
+        <DbgClock>10000000</DbgClock>
+      </DebugDescription>
     </TargetOption>
   </Target>
 
